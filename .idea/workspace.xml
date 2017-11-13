@@ -1,7 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b1bebbbc-cf3d-4d4c-b8c7-779d30c1e35a" name="Default" comment="" />
+    <list default="true" id="b1bebbbc-cf3d-4d4c-b8c7-779d30c1e35a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/backprop_magnitude_nabla.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/backprop_magnitude_nabla.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/data_1000.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/digits.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/digits_separate.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/false_minima.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/false_minima.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/generate_gradient.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/initial_gradient.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient_contours.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient_contours.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_100_digits.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_2_and_1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_complete_zero.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_first_digit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_other_features.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_really_bad_images.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_top_left_feature.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_comparison.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_log.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_rotated_5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_svm.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_2_layers.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_3_layers.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_4_layers.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting4.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting_full.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting_full.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_hard_data.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_hard_data_fit.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_limitations.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized_full.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized_full.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/relu.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/relu.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/sigmoid.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/sigmoid.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/step.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/step.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/tanh.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/tanh.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/serialize_images_to_json.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/test.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_2_layers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_3_layers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_4_layers.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_100.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_100.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_30.json" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_30.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/conv.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/expand_mnist.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/inc1.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mnist_average_darkness.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mnist_svm.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/network2.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/network3.py" afterPath="" />
+    </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -91,7 +173,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -121,8 +203,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="neural-networks-and-deep-learning" type="b2602c69:ProjectViewProjectNode" />
-              <item name="neural-networks-and-deep-learning" type="462c0819:PsiDirectoryNode" />
+              <item name="neural-network" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neural-network" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -181,9 +263,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="2" width="1378" height="743" extended-state="0" />
+    <frame x="-7" y="2" width="1378" height="743" extended-state="1" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30121395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30121395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -191,7 +273,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2852459" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2852459" sideWeight="0.4969743" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
