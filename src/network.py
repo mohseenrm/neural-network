@@ -1,6 +1,6 @@
 import mnist_loader
 import numpy as np
-import pdb
+# import pdb
 import random
 
 class Network(object):
@@ -88,7 +88,7 @@ class Network(object):
         m2 = np.random.binomial(1, 1, size=z.shape)
         zs.append(z)
         activation = sigmoid(z) * m2
-        pdb.set_trace()
+        # pdb.set_trace()
         activations.append(activation)
 
         z = np.dot(activation,self.weights[1]) + self.biases[1]
