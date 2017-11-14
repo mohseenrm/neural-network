@@ -1,20 +1,20 @@
-import random
-import pdb
+import mnist_loader
 import numpy as np
+import pdb
+import random
 
 class Network(object):
 
     def __init__(self):
-
         np.random.seed(0)
         self.biases = []
         self.weights = []
-        self.weights.append(np.random.randn(784,256))
-        self.biases.append(np.random.randn(1,256))
-        self.weights.append( np.random.randn(256,256))
-        self.biases.append(np.random.randn(1,256))
+        self.weights.append(np.random.randn(784, 256))
+        self.biases.append(np.random.randn(1, 256))
+        self.weights.append(np.random.randn(256, 256))
+        self.biases.append(np.random.randn(1, 256))
         self.weights.append(np.random.randn(256, 10))
-        self.biases.append(np.random.randn(1,10))
+        self.biases.append(np.random.randn(1, 10))
 
     def feedforward(self, a):
         z1 = (a.transpose()).dot(self.weights[0]) + self.biases[0]
@@ -133,8 +133,6 @@ def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
 
 if __name__ == "__main__":
-
-    import mnist_loader
     training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
     net = Network()
     net.SGD(training_data, 3, 10, 0.01, test_data=test_data)
