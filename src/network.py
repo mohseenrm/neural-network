@@ -26,7 +26,7 @@ class Network(object):
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
         return (probs == probs.max(axis=1, keepdims=1)).astype(int)
 
-    def SGD(self, training_data, epochs, mini_batch_size, eta,test_data=None):
+    def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
         """Train the neural network using mini-batch stochastic
         gradient descent.  The ``training_data`` is a list of tuples
         ``(x, y)`` representing the training inputs and the desired
@@ -41,7 +41,8 @@ class Network(object):
             random.shuffle(training_data)
             mini_batches = [
                 training_data[k:k + mini_batch_size]
-                for k in xrange(0, n, mini_batch_size)]
+                for k in xrange(0, n, mini_batch_size)
+            ]
             for mini_batch in mini_batches:
                 self.update_mini_batch(mini_batch, eta)
             if test_data:
@@ -50,13 +51,17 @@ class Network(object):
             else:
                 print "Epoch {0} complete".format(j)
 
+    def update_weights(self, weight, eta, length, nabla):
+        return weight - ((eta / length) * nabla)
+
     def update_mini_batch(self, mini_batch, eta):
         """Update the network's weights and biases by applying
         gradient descent using backpropagation to a single mini batch.
-        The ``mini_batch`` is a list of tuples ``(x, y)``, and ``eta``
+        The "mini_batch" is a list of tuples (x, y), and "eta"
         is the learning rate."""
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
+        
         for x, y in mini_batch:
             delta_nabla_b, delta_nabla_w = self.backprop(x, y)
             nabla_w[0] += delta_nabla_w[0].transpose()
@@ -66,13 +71,55 @@ class Network(object):
             nabla_b[1] += delta_nabla_b[1]
             nabla_b[2] += delta_nabla_b[2]
 
-        self.weights[0] = self.weights[0] - (eta/ len(mini_batch)) * nabla_w[0]
-        self.weights[1] = self.weights[1] - (eta/ len(mini_batch)) * nabla_w[1]
-        self.weights[2] = self.weights[2] - (eta/ len(mini_batch)) * nabla_w[2]
+        mini_batch_length = len(mini_batch)
+
+        self.weights[0] = self.weights[0] - (eta / len(mini_batch)) * nabla_w[0]
+        self.weights[1] = self.weights[1] - (eta / len(mini_batch)) * nabla_w[1]
+        self.weights[2] = self.weights[2] - (eta / len(mini_batch)) * nabla_w[2]
 
         self.biases[0] = self.biases[0] - (eta / len(mini_batch)) * nabla_b[0]
         self.biases[1] = self.biases[1] - (eta / len(mini_batch)) * nabla_b[1]
         self.biases[2] = self.biases[2] - (eta / len(mini_batch)) * nabla_b[2]
+
+        # Iterative approach
+        # for i in xrange(3):
+        #     self.weights[i] = self.update_weights(
+        #         self.weights[i],
+        #         eta,
+        #         len(mini_batch),
+        #         nabla_w[i]
+        #     )
+
+        #     self.biases[i] = self.update_weights(
+        #         self.biases[i],
+        #         eta,
+        #         len(mini_batch),
+        #         nabla_b[i]
+        #     )
+
+        # Functional approach
+        # self.weights = list(
+        #     map(
+        #         lambda (i, x): self.update_weights(
+        #             x,
+        #             eta,
+        #             len(mini_batch),
+        #             nabla_w[i]
+        #         ),
+        #         enumerate(self.weights)
+        #     )
+        # )
+        # self.biases = list(
+        #     map(
+        #         lambda (i, x): self.update_weights(
+        #             x,
+        #             eta,
+        #             len(mini_batch),
+        #             nabla_b[i]
+        #         ),
+        #         enumerate(self.biases)
+        #     )
+        # )
 
     def backprop(self, x, y):
 
@@ -87,8 +134,8 @@ class Network(object):
         z = np.dot(activation.transpose(),self.weights[0]) + self.biases[0]
         m2 = np.random.binomial(1, 1, size=z.shape)
         zs.append(z)
+
         activation = sigmoid(z) * m2
-        # pdb.set_trace()
         activations.append(activation)
 
         z = np.dot(activation,self.weights[1]) + self.biases[1]
@@ -122,8 +169,10 @@ class Network(object):
         return (nabla_b, nabla_w)
 
     def evaluate(self, test_data):
-        test_results = [(np.argmax(self.feedforward(x)), y)
-                        for (x, y) in test_data]
+        test_results = [
+            (np.argmax(self.feedforward(x)), y)
+            for (x, y) in test_data
+        ]
         return sum(int(x == y) for (x, y) in test_results)
 
 def sigmoid(z):
@@ -136,3 +185,4 @@ if __name__ == "__main__":
     training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
     net = Network()
     net.SGD(training_data, 3, 10, 0.01, test_data=test_data)
+    
