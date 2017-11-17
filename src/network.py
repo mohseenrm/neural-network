@@ -1,10 +1,11 @@
-import mnist_loader
-import numpy as np
-# import pdb
+import cPickle
+import gzip
+import os
 import random
+# Third-party libraries
+import numpy as np
 
 class Network(object):
-
     def __init__(self):
         np.random.seed(0)
         self.biases = []
@@ -71,55 +72,29 @@ class Network(object):
             nabla_b[1] += delta_nabla_b[1]
             nabla_b[2] += delta_nabla_b[2]
 
-        mini_batch_length = len(mini_batch)
-
-        self.weights[0] = self.weights[0] - (eta / len(mini_batch)) * nabla_w[0]
-        self.weights[1] = self.weights[1] - (eta / len(mini_batch)) * nabla_w[1]
-        self.weights[2] = self.weights[2] - (eta / len(mini_batch)) * nabla_w[2]
-
-        self.biases[0] = self.biases[0] - (eta / len(mini_batch)) * nabla_b[0]
-        self.biases[1] = self.biases[1] - (eta / len(mini_batch)) * nabla_b[1]
-        self.biases[2] = self.biases[2] - (eta / len(mini_batch)) * nabla_b[2]
-
-        # Iterative approach
-        # for i in xrange(3):
-        #     self.weights[i] = self.update_weights(
-        #         self.weights[i],
-        #         eta,
-        #         len(mini_batch),
-        #         nabla_w[i]
-        #     )
-
-        #     self.biases[i] = self.update_weights(
-        #         self.biases[i],
-        #         eta,
-        #         len(mini_batch),
-        #         nabla_b[i]
-        #     )
-
         # Functional approach
-        # self.weights = list(
-        #     map(
-        #         lambda (i, x): self.update_weights(
-        #             x,
-        #             eta,
-        #             len(mini_batch),
-        #             nabla_w[i]
-        #         ),
-        #         enumerate(self.weights)
-        #     )
-        # )
-        # self.biases = list(
-        #     map(
-        #         lambda (i, x): self.update_weights(
-        #             x,
-        #             eta,
-        #             len(mini_batch),
-        #             nabla_b[i]
-        #         ),
-        #         enumerate(self.biases)
-        #     )
-        # )
+        self.weights = list(
+            map(
+                lambda (i, x): self.update_weights(
+                    x,
+                    eta,
+                    len(mini_batch),
+                    nabla_w[i]
+                ),
+                enumerate(self.weights)
+            )
+        )
+        self.biases = list(
+            map(
+                lambda (i, x): self.update_weights(
+                    x,
+                    eta,
+                    len(mini_batch),
+                    nabla_b[i]
+                ),
+                enumerate(self.biases)
+            )
+        )
 
     def backprop(self, x, y):
 
@@ -132,14 +107,14 @@ class Network(object):
         zs = []
 
         z = np.dot(activation.transpose(),self.weights[0]) + self.biases[0]
-        m2 = np.random.binomial(1, 1, size=z.shape)
+        m2 = np.random.binomial(1, 0.5, size=z.shape)
         zs.append(z)
 
         activation = sigmoid(z) * m2
         activations.append(activation)
 
         z = np.dot(activation,self.weights[1]) + self.biases[1]
-        m3 = np.random.binomial(1, 1, size=z.shape)
+        m3 = np.random.binomial(1, 0.5, size=z.shape)
         zs.append(z)
         activation = sigmoid(z) * m3
         activations.append(activation)
@@ -181,8 +156,95 @@ def sigmoid(z):
 def sigmoid_prime(z):
     return sigmoid(z)*(1-sigmoid(z))
 
+class MNIST(object):
+    def __init__(self):
+        pass
+    
+    def load_data(self):
+        """
+        Return the MNIST data as a tuple containing the training data,
+        the validation data, and the test data.
+
+        The ``training_data`` is returned as a tuple with two entries.
+        The first entry contains the actual training images.  This is a
+        numpy ndarray with 50,000 entries.  Each entry is, in turn, a
+        numpy ndarray with 784 values, representing the 28 * 28 = 784
+        pixels in a single MNIST image.
+
+        The second entry in the ``training_data`` tuple is a numpy ndarray
+        containing 50,000 entries.  Those entries are just the digit
+        values (0...9) for the corresponding images contained in the first
+        entry of the tuple.
+
+        The ``validation_data`` and ``test_data`` are similar, except
+        each contains only 10,000 images.
+
+        This is a nice data format, but for use in neural networks it's
+        helpful to modify the format of the ``training_data`` a little.
+        That's done in the wrapper function ``load_data_wrapper()``, see
+        below.
+        """
+        file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '..',
+                'data',
+                'mnist.pkl.gz'
+            )
+        )
+
+        f = gzip.open(file_path, 'rb')
+        training_data, validation_data, test_data = cPickle.load(f)
+        f.close()
+        return (training_data, validation_data, test_data)
+
+    def load_data_wrapper(self):
+        """
+        Return a tuple containing ``(training_data, validation_data,
+        test_data)``. Based on ``load_data``, but the format is more
+        convenient for use in our implementation of neural networks.
+
+        In particular, ``training_data`` is a list containing 50,000
+        2-tuples ``(x, y)``.  ``x`` is a 784-dimensional numpy.ndarray
+        containing the input image.  ``y`` is a 10-dimensional
+        numpy.ndarray representing the unit vector corresponding to the
+        correct digit for ``x``.
+
+        ``validation_data`` and ``test_data`` are lists containing 10,000
+        2-tuples ``(x, y)``.  In each case, ``x`` is a 784-dimensional
+        numpy.ndarry containing the input image, and ``y`` is the
+        corresponding classification, i.e., the digit values (integers)
+        corresponding to ``x``.
+
+        Obviously, this means we're using slightly different formats for
+        the training data and the validation / test data.  These formats
+        turn out to be the most convenient for use in our neural network
+        code.
+        """
+        tr_d, va_d, te_d = self.load_data()
+        training_inputs = [np.reshape(x, (784, 1)) for x in tr_d[0]]
+        training_results = [self.vectorized_result(y) for y in tr_d[1]]
+        training_data = zip(training_inputs, training_results)
+        validation_inputs = [np.reshape(x, (784, 1)) for x in va_d[0]]
+        validation_data = zip(validation_inputs, va_d[1])
+        test_inputs = [np.reshape(x, (784, 1)) for x in te_d[0]]
+        test_data = zip(test_inputs, te_d[1])
+        return (training_data, validation_data, test_data)
+
+    def vectorized_result(self, j):
+        """
+        Return a 10-dimensional unit vector with a 1.0 in the jth
+        position and zeroes elsewhere.  This is used to convert a digit
+        (0...9) into a corresponding desired output from the neural
+        network.
+        """
+        e = np.zeros((10, 1))
+        e[j] = 1.0
+        return e
+
 if __name__ == "__main__":
-    training_data, validation_data, test_data = mnist_loader.load_data_wrapper()
+    mnist = MNIST()
+    training_data, validation_data, test_data = mnist.load_data_wrapper()
     net = Network()
     net.SGD(training_data, 3, 10, 0.01, test_data=test_data)
     

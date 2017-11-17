@@ -55,8 +55,8 @@ class Network(object):
         n_w3 = [np.zeros(w.shape) for w in self.w3]
         for x, y in mini_batch:
             delta_b1, delta_w1, delta_b2, delta_w2, delta_b3, delta_w3, = self.backprop(x, y)
-            n_b1 = [nb+dnb for nb, dnb in zip(n_b1, delta_b1)]
-            n_w1 = [nw+dnw for nw, dnw in zip(n_w1, delta_w1)]
+            n_b1 = [nb + dnb for nb, dnb in zip(n_b1, delta_b1)]
+            n_w1 = [nw + dnw for nw, dnw in zip(n_w1, delta_w1)]
             n_b2 = [nb + dnb for nb, dnb in zip(n_b2, delta_b2)]
             n_w2 = [nw + dnw for nw, dnw in zip(n_w2, delta_w2)]
             n_b3 = [nb + dnb for nb, dnb in zip(n_b3, delta_b3)]
