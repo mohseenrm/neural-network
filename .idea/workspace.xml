@@ -2,87 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1bebbbc-cf3d-4d4c-b8c7-779d30c1e35a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/backprop_magnitude_nabla.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/backprop_magnitude_nabla.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/data_1000.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/digits.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/digits_separate.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/false_minima.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/false_minima.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/generate_gradient.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/initial_gradient.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient_contours.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/misleading_gradient_contours.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_100_digits.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_2_and_1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_complete_zero.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_first_digit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_other_features.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_really_bad_images.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/mnist_top_left_feature.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_comparison.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_log.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_rotated_5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/more_data_svm.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/multiple_eta.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_2_layers.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_3_layers.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/norms_during_training_4_layers.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting_full.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/overfitting_full.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_hard_data.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_hard_data_fit.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/pca_limitations.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized_full.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/regularized_full.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/relu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/relu.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/sigmoid.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/sigmoid.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/step.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/step.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/tanh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/replaced_by_d3/tanh.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/serialize_images_to_json.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/test.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_2_layers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_3_layers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/training_speed_4_layers.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/valley2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_100.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_100.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_30.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/fig/weight_initialization_30.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/conv.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/expand_mnist.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/inc1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mnist_average_darkness.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/mnist_svm.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/network2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/network3.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/network.py" afterPath="$PROJECT_DIR$/src/network.py" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -108,10 +29,10 @@
       <file leaf-file-name="network.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="87" column="36" lean-forward="false" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+            <state relative-caret-position="-1096">
+              <caret line="83" column="39" lean-forward="true" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
               <folding>
-                <element signature="e#0#13#0" expanded="true" />
+                <element signature="e#0#14#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -137,7 +58,6 @@
       <find>feedforward</find>
       <find>layers</find>
       <find>backprop</find>
-      <find>sigmoid_prime</find>
       <find>evaluate</find>
       <find>nn_output_dim</find>
       <find>y</find>
@@ -150,6 +70,8 @@
       <find>cost_derivative</find>
       <find>num_layers</find>
       <find>sizes</find>
+      <find>sigmoid_prime</find>
+      <find>update_weights</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -173,7 +95,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -197,8 +119,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -206,10 +126,17 @@
               <item name="neural-network" type="b2602c69:ProjectViewProjectNode" />
               <item name="neural-network" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="neural-network" type="b2602c69:ProjectViewProjectNode" />
+              <item name="neural-network" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -263,9 +190,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="2" width="1378" height="743" extended-state="1" />
+    <frame x="-7" y="2" width="1378" height="743" extended-state="0" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30121395" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31031868" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -306,7 +233,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -316,7 +243,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -326,7 +253,27 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -338,43 +285,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/inc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/inc1.py" />
     <entry file="file://$PROJECT_DIR$/src/mnist_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1853">
           <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -383,32 +310,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="92" column="21" lean-forward="false" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -417,32 +330,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1224">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1513">
           <caret line="92" column="21" lean-forward="true" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,32 +350,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1768">
           <caret line="104" column="27" lean-forward="true" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -485,9 +370,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -496,32 +379,18 @@
         <state relative-caret-position="1496">
           <caret line="88" column="39" lean-forward="true" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="279" column="0" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="279" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/mnist_loader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="46" column="24" lean-forward="false" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -530,104 +399,50 @@
         <state relative-caret-position="527">
           <caret line="31" column="26" lean-forward="false" selection-start-line="31" selection-start-column="26" selection-end-line="31" selection-end-column="26" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1921">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3910">
-          <caret line="240" column="74" lean-forward="true" selection-start-line="240" selection-start-column="74" selection-end-line="240" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="23" lean-forward="true" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="23" lean-forward="true" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -635,37 +450,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mnist_loader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding>
-            <element signature="e#325#339#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="287" column="16" lean-forward="false" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/network2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="118" column="19" lean-forward="false" selection-start-line="118" selection-start-column="13" selection-end-line="118" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/inc1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1683">
-          <caret line="102" column="0" lean-forward="true" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/network3.py" />
+    <entry file="file://$PROJECT_DIR$/src/network2.py" />
+    <entry file="file://$PROJECT_DIR$/src/inc1.py" />
     <entry file="file://$PROJECT_DIR$/src/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1938">
@@ -680,12 +467,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mnist_loader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="87" column="36" lean-forward="false" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
+        <state relative-caret-position="-1096">
+          <caret line="83" column="39" lean-forward="true" selection-start-line="83" selection-start-column="39" selection-end-line="83" selection-end-column="39" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>

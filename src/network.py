@@ -131,12 +131,12 @@ class Network(object):
         nabla_w[2] = (activations[2].transpose()).dot(delta)
         nabla_b[2] = np.sum(delta, axis=0, keepdims=True)
 
-        sp = sigmoid_prime(zs[-2])
+        sp = sigmoid(zs[-2],True)
         delta = np.dot(self.weights[2], delta.transpose()).transpose() * sp * m3
         nabla_b[1] = delta
         nabla_w[1] = np.dot(delta, activations[1].transpose())
 
-        sp = sigmoid_prime(zs[-3])
+        sp = sigmoid(zs[-3],True)
         delta = np.dot(self.weights[1], delta.transpose()).transpose() * sp *m2
         nabla_b[0] = delta
         nabla_w[0] = np.dot(delta.transpose(), activations[0].transpose())
@@ -150,53 +150,15 @@ class Network(object):
         ]
         return sum(int(x == y) for (x, y) in test_results)
 
-def sigmoid(z):
-    return 1.0/(1.0+np.exp(-z))
-
-def sigmoid_prime(z):
-    return sigmoid(z)*(1-sigmoid(z))
+def sigmoid(z,derivative = False):
+    if derivative:
+        return sigmoid(z) * (1 - sigmoid(z))
+    else:
+        return 1.0/(1.0+np.exp(-z))
 
 class MNIST(object):
     def __init__(self):
         pass
-    
-    def load_data(self):
-        """
-        Return the MNIST data as a tuple containing the training data,
-        the validation data, and the test data.
-
-        The ``training_data`` is returned as a tuple with two entries.
-        The first entry contains the actual training images.  This is a
-        numpy ndarray with 50,000 entries.  Each entry is, in turn, a
-        numpy ndarray with 784 values, representing the 28 * 28 = 784
-        pixels in a single MNIST image.
-
-        The second entry in the ``training_data`` tuple is a numpy ndarray
-        containing 50,000 entries.  Those entries are just the digit
-        values (0...9) for the corresponding images contained in the first
-        entry of the tuple.
-
-        The ``validation_data`` and ``test_data`` are similar, except
-        each contains only 10,000 images.
-
-        This is a nice data format, but for use in neural networks it's
-        helpful to modify the format of the ``training_data`` a little.
-        That's done in the wrapper function ``load_data_wrapper()``, see
-        below.
-        """
-        file_path = os.path.abspath(
-            os.path.join(
-                os.path.dirname(__file__),
-                '..',
-                'data',
-                'mnist.pkl.gz'
-            )
-        )
-
-        f = gzip.open(file_path, 'rb')
-        training_data, validation_data, test_data = cPickle.load(f)
-        f.close()
-        return (training_data, validation_data, test_data)
 
     def load_data_wrapper(self):
         """
@@ -221,7 +183,18 @@ class MNIST(object):
         turn out to be the most convenient for use in our neural network
         code.
         """
-        tr_d, va_d, te_d = self.load_data()
+        file_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '..',
+                'data',
+                'mnist.pkl.gz'
+            )
+        )
+        f = gzip.open(file_path, 'rb')
+        tr_d, va_d, te_d = cPickle.load(f)
+        f.close()
+
         training_inputs = [np.reshape(x, (784, 1)) for x in tr_d[0]]
         training_results = [self.vectorized_result(y) for y in tr_d[1]]
         training_data = zip(training_inputs, training_results)
