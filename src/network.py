@@ -153,25 +153,16 @@ class MNIST1(object):
 
     def load_data_wrapper(self):
 
-        #change path
-        mndata = MNIST('C:\Users\Nagarchith Balaji\Desktop\Fall-17\FSL\Project\\naga\\neural-network\data')
+        data_path = os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '..',
+                'data'
+            )
+        )
+        mndata = MNIST(data_path)
         train = mndata.load_training()
         test = mndata.load_testing()
-        #pdb.set_trace()
-        """" pdb.set_trace()
-
-               file_path = os.path.abspath(
-                   os.path.join(
-                       os.path.dirname(__file__),
-                       '..',
-                       'data',
-                       'mnist.pkl.gz'
-                   )
-               )
-
-               f = gzip.open(file_path, 'rb')
-               tr_d, va_d, te_d = pickle.load(f)
-               f.close()"""
 
         training_inputs = [np.reshape(x, (784, 1)) for x in train[0]]
         training_results = [self.vectorized_result(y) for y in train[1]]
