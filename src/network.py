@@ -1,9 +1,11 @@
-import cPickle
+import cPickle as pickle
 import gzip
 import os
 import random
+import pdb
 # Third-party libraries
 import numpy as np
+from mnist import MNIST
 
 class Network(object):
     def __init__(self):
@@ -18,24 +20,20 @@ class Network(object):
         self.biases.append(np.random.randn(1, 10))
 
     def feedforward(self, a):
-        z1 = (a.transpose()).dot(self.weights[0]) + self.biases[0]
-        a1 = sigmoid(z1)
+        scaled_a = np.divide(a,1)
+        z1 = (scaled_a.transpose()).dot(self.weights[0]) + self.biases[0]
+        m2 = np.random.binomial(1, 1, size=z1.shape)
+        a1 = sigmoid(z1)*m2
         z2 = a1.dot(self.weights[1]) + self.biases[1]
-        a2 = sigmoid(z2)
+        m3 = np.random.binomial(1, 1, size=z2.shape)
+        a2 = sigmoid(z2)*m3
         z3 = a2.dot(self.weights[2]) + self.biases[2]
         exp_scores = np.exp(z3)
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
         return (probs == probs.max(axis=1, keepdims=1)).astype(int)
 
-    def SGD(self, training_data, epochs, mini_batch_size, eta, test_data=None):
-        """Train the neural network using mini-batch stochastic
-        gradient descent.  The ``training_data`` is a list of tuples
-        ``(x, y)`` representing the training inputs and the desired
-        outputs.  The other non-optional parameters are
-        self-explanatory.  If ``test_data`` is provided then the
-        network will be evaluated against the test data after each
-        epoch, and partial progress printed out.  This is useful for
-        tracking progress, but slows things down substantially."""
+    def SGD(self, training_data, epochs, mini_batch_size, eta):
+
         if test_data: n_test = len(test_data)
         n = len(training_data)
         for j in xrange(epochs):
@@ -56,10 +54,7 @@ class Network(object):
         return weight - ((eta / length) * nabla)
 
     def update_mini_batch(self, mini_batch, eta):
-        """Update the network's weights and biases by applying
-        gradient descent using backpropagation to a single mini batch.
-        The "mini_batch" is a list of tuples (x, y), and "eta"
-        is the learning rate."""
+
         nabla_b = [np.zeros(b.shape) for b in self.biases]
         nabla_w = [np.zeros(w.shape) for w in self.weights]
         
@@ -102,21 +97,20 @@ class Network(object):
         nabla_w = [np.zeros(w.shape) for w in self.weights]
 
         # feedforward
-        activation = x
-        activations = [x]
+        scaled_x = np.divide(x,1)
+        activation = scaled_x
+        activations = [scaled_x]
         zs = []
 
         z = np.dot(activation.transpose(),self.weights[0]) + self.biases[0]
-        m2 = np.random.binomial(1, 0.5, size=z.shape)
         zs.append(z)
 
-        activation = sigmoid(z) * m2
+        activation = sigmoid(z)
         activations.append(activation)
 
         z = np.dot(activation,self.weights[1]) + self.biases[1]
-        m3 = np.random.binomial(1, 0.5, size=z.shape)
         zs.append(z)
-        activation = sigmoid(z) * m3
+        activation = sigmoid(z)
         activations.append(activation)
 
         z = np.dot(activation,self.weights[2])+self.biases[2]
@@ -132,22 +126,19 @@ class Network(object):
         nabla_b[2] = np.sum(delta, axis=0, keepdims=True)
 
         sp = sigmoid(zs[-2],True)
-        delta = np.dot(self.weights[2], delta.transpose()).transpose() * sp * m3
+        delta = np.dot(self.weights[2], delta.transpose()).transpose() * sp
         nabla_b[1] = delta
         nabla_w[1] = np.dot(delta, activations[1].transpose())
 
         sp = sigmoid(zs[-3],True)
-        delta = np.dot(self.weights[1], delta.transpose()).transpose() * sp *m2
+        delta = np.dot(self.weights[1], delta.transpose()).transpose() * sp
         nabla_b[0] = delta
         nabla_w[0] = np.dot(delta.transpose(), activations[0].transpose())
         #pdb.set_trace()
         return (nabla_b, nabla_w)
 
     def evaluate(self, test_data):
-        test_results = [
-            (np.argmax(self.feedforward(x)), y)
-            for (x, y) in test_data
-        ]
+        test_results = [(np.argmax(self.feedforward(x)), y) for (x, y) in test_data]
         return sum(int(x == y) for (x, y) in test_results)
 
 def sigmoid(z,derivative = False):
@@ -156,68 +147,53 @@ def sigmoid(z,derivative = False):
     else:
         return 1.0/(1.0+np.exp(-z))
 
-class MNIST(object):
+class MNIST1(object):
     def __init__(self):
         pass
 
     def load_data_wrapper(self):
-        """
-        Return a tuple containing ``(training_data, validation_data,
-        test_data)``. Based on ``load_data``, but the format is more
-        convenient for use in our implementation of neural networks.
 
-        In particular, ``training_data`` is a list containing 50,000
-        2-tuples ``(x, y)``.  ``x`` is a 784-dimensional numpy.ndarray
-        containing the input image.  ``y`` is a 10-dimensional
-        numpy.ndarray representing the unit vector corresponding to the
-        correct digit for ``x``.
+        #change path
+        mndata = MNIST('C:\Users\Nagarchith Balaji\Desktop\Fall-17\FSL\Project\\naga\\neural-network\data')
+        train = mndata.load_training()
+        test = mndata.load_testing()
+        #pdb.set_trace()
+        """" pdb.set_trace()
 
-        ``validation_data`` and ``test_data`` are lists containing 10,000
-        2-tuples ``(x, y)``.  In each case, ``x`` is a 784-dimensional
-        numpy.ndarry containing the input image, and ``y`` is the
-        corresponding classification, i.e., the digit values (integers)
-        corresponding to ``x``.
+               file_path = os.path.abspath(
+                   os.path.join(
+                       os.path.dirname(__file__),
+                       '..',
+                       'data',
+                       'mnist.pkl.gz'
+                   )
+               )
 
-        Obviously, this means we're using slightly different formats for
-        the training data and the validation / test data.  These formats
-        turn out to be the most convenient for use in our neural network
-        code.
-        """
-        file_path = os.path.abspath(
-            os.path.join(
-                os.path.dirname(__file__),
-                '..',
-                'data',
-                'mnist.pkl.gz'
-            )
-        )
-        f = gzip.open(file_path, 'rb')
-        tr_d, va_d, te_d = cPickle.load(f)
-        f.close()
+               f = gzip.open(file_path, 'rb')
+               tr_d, va_d, te_d = pickle.load(f)
+               f.close()"""
 
-        training_inputs = [np.reshape(x, (784, 1)) for x in tr_d[0]]
-        training_results = [self.vectorized_result(y) for y in tr_d[1]]
+        training_inputs = [np.reshape(x, (784, 1)) for x in train[0]]
+        training_results = [self.vectorized_result(y) for y in train[1]]
         training_data = zip(training_inputs, training_results)
-        validation_inputs = [np.reshape(x, (784, 1)) for x in va_d[0]]
-        validation_data = zip(validation_inputs, va_d[1])
-        test_inputs = [np.reshape(x, (784, 1)) for x in te_d[0]]
-        test_data = zip(test_inputs, te_d[1])
+        validation_inputs = [np.reshape(x, (784, 1)) for x in test[0]]
+        validation_data = zip(validation_inputs, test[1])
+        test_inputs = [np.reshape(x, (784, 1)) for x in test[0]]
+        test_data = zip(test_inputs, test[1])
+
         return (training_data, validation_data, test_data)
 
+
+
+
     def vectorized_result(self, j):
-        """
-        Return a 10-dimensional unit vector with a 1.0 in the jth
-        position and zeroes elsewhere.  This is used to convert a digit
-        (0...9) into a corresponding desired output from the neural
-        network.
-        """
         e = np.zeros((10, 1))
         e[j] = 1.0
         return e
 
 if __name__ == "__main__":
-    mnist = MNIST()
+    mnist = MNIST1()
     training_data, validation_data, test_data = mnist.load_data_wrapper()
     net = Network()
-    net.SGD(training_data, 3, 10, 0.01, test_data=test_data)
+    net.SGD(training_data, 3, 10, 0.01)
     
