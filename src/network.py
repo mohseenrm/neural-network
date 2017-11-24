@@ -50,7 +50,7 @@ class Neural_Network(object):
 
     def Stochastic_Gradient_Descent(self, validation_data, training_data, learning_rate):
 
-        iterations = 3
+        iterations = 20
         SGD_Size = 10
         if testing_data: n_test = len(validation_data)
         n = len(training_data)
@@ -73,12 +73,15 @@ class Neural_Network(object):
                 accuracy,error = self.test_Network(validation_data)
                 error = np.true_divide(error,n_test)
                 #pdb.set_trace()
-                print "Validation: iteration {0}:  accuracy={1}% with error {2}".format(j, np.true_divide(accuracy,n_test)*100, error[0][0])
+                print "Validation: iteration {0}:  accuracy={1}% with Cost {2}".format(j, np.true_divide(accuracy,n_test)*100, error[0][0])
+                accuracy, error1 = self.test_Network(testing_data)
+                print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,
+                                                                      np.true_divide(error1[0][0], n_test))
                 if(previous_error < error):
                     break
 
         accuracy, error = self.test_Network(testing_data)
-        print "Testing:  accuracy={1}% with error {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
+        print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
 
     def update_weights(self, weight, learning_rate, length, nabla):
 
