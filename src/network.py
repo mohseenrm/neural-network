@@ -19,14 +19,14 @@ class Neural_Network(object):
         self.weights.append(np.random.randn(256, 10))
         self.biases.append(np.random.randn(1, 10))
 
-    def feed_Network(self, a):
+    def feed_Network(self, a, dropout = 1):
 
         scaled_a = np.true_divide(a, 255)
         z1 = (scaled_a.transpose()).dot(self.weights[0]) + self.biases[0]
-        m2 = np.random.binomial(1, 1, size=z1.shape)
+        m2 = np.random.binomial(1, dropout, size=z1.shape)
         a1 = sigmoid(z1)*m2
         z2 = a1.dot(self.weights[1]) + self.biases[1]
-        m3 = np.random.binomial(1, 1, size=z2.shape)
+        m3 = np.random.binomial(1, dropout, size=z2.shape)
         a2 = sigmoid(z2)*m3
         z3 = a2.dot(self.weights[2]) + self.biases[2]
         exp_scores = np.exp(z3)
@@ -34,12 +34,12 @@ class Neural_Network(object):
         #return (probs == probs.max(axis=1, keepdims=1)).astype(int)
         return probs
 
-    def test_Network(self, testing_data):
+    def test_Network(self, testing_data,dropout= 1):
         total_error = 0
         test_results = 0
         mnist = MNIST_load_data()
         for (x,y) in testing_data:
-            probs = self.feed_Network(x)
+            probs = self.feed_Network(x,dropout)
             logprob = -np.log(probs)
             total_error += np.dot(logprob,mnist.one_hot_vectors(y))
             if(np.argmax(probs) == y):
@@ -50,7 +50,7 @@ class Neural_Network(object):
 
     def Stochastic_Gradient_Descent(self, validation_data, training_data, learning_rate):
 
-        iterations = 20
+        iterations = 30
         SGD_Size = 10
         if testing_data: n_test = len(validation_data)
         n = len(training_data)
@@ -74,13 +74,13 @@ class Neural_Network(object):
                 error = np.true_divide(error,n_test)
                 #pdb.set_trace()
                 print "Validation: iteration {0}:  accuracy={1}% with Cost {2}".format(j, np.true_divide(accuracy,n_test)*100, error[0][0])
-                accuracy, error1 = self.test_Network(testing_data)
+                accuracy, error1 = self.test_Network(testing_data,0.1)
                 print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,
                                                                       np.true_divide(error1[0][0], n_test))
                 if(previous_error < error):
                     break
 
-        accuracy, error = self.test_Network(testing_data)
+        accuracy, error = self.test_Network(testing_data,0.1)
         print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
 
     def update_weights(self, weight, learning_rate, length, nabla):
