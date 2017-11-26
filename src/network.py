@@ -19,14 +19,14 @@ class Neural_Network(object):
         self.weights.append(np.random.randn(256, 10))
         self.biases.append(np.random.randn(1, 10))
 
-    def feed_Network(self, a, dropout = 1):
+    def feed_Network(self, a, m2, m3):
 
         scaled_a = np.true_divide(a, 255)
         z1 = (scaled_a.transpose()).dot(self.weights[0]) + self.biases[0]
-        m2 = np.random.binomial(1, dropout, size=z1.shape)
+        #m2 = np.random.binomial(1, dropout, size=z1.shape)
         a1 = sigmoid(z1)*m2
         z2 = a1.dot(self.weights[1]) + self.biases[1]
-        m3 = np.random.binomial(1, dropout, size=z2.shape)
+        #m3 = np.random.binomial(1, dropout, size=z2.shape)
         a2 = sigmoid(z2)*m3
         z3 = a2.dot(self.weights[2]) + self.biases[2]
         exp_scores = np.exp(z3)
@@ -34,25 +34,28 @@ class Neural_Network(object):
         #return (probs == probs.max(axis=1, keepdims=1)).astype(int)
         return probs
 
-    def test_Network(self, testing_data,dropout= 1):
+    def test_Network(self, testing_data,dropout = 0):
         total_error = 0
         test_results = 0
         mnist = MNIST_load_data()
+        m2 = np.random.binomial(1, 1- dropout, size=(1,256))
+        m3 = np.random.binomial(1, 1 - dropout, size=(1,256))
         for (x,y) in testing_data:
-            probs = self.feed_Network(x,dropout)
+            probs = self.feed_Network(x, m2, m3)
             logprob = -np.log(probs)
-            total_error += np.dot(logprob,mnist.one_hot_vectors(y))
+            op = mnist.one_hot_vectors(y)
+            total_error += np.dot(logprob, op)
             if(np.argmax(probs) == y):
                 test_results += 1
-        #test_results = [(np.argmax(self.feed_Network(x)), y) for (x, y) in testing_data]
-        #pdb.set_trace()
+
         return test_results,total_error
 
-    def Stochastic_Gradient_Descent(self, validation_data, training_data, learning_rate):
+    def Stochastic_Gradient_Descent(self, validation_data, training_data, testing_data, learning_rate):
 
         iterations = 30
         SGD_Size = 10
-        if testing_data: n_test = len(validation_data)
+        n_val = len(validation_data)
+        n_test = len(testing_data)
         n = len(training_data)
         error = 999
 
@@ -71,16 +74,15 @@ class Neural_Network(object):
             if validation_data:
                 previous_error = error
                 accuracy,error = self.test_Network(validation_data)
-                error = np.true_divide(error,n_test)
-                #pdb.set_trace()
-                print "Validation: iteration {0}:  accuracy={1}% with Cost {2}".format(j, np.true_divide(accuracy,n_test)*100, error[0][0])
-                accuracy, error1 = self.test_Network(testing_data,0.1)
-                print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,
+                error = np.true_divide(error,n_val)
+                print "Validation: iteration {0}:  accuracy={1}% with Cost {2}".format(j, np.true_divide(accuracy,n_val)*100, error[0][0])
+                accuracy1, error1 = self.test_Network(testing_data,0)
+                print "Testing:  accuracy={0}% with cost {1}".format(np.true_divide(accuracy1, n_test) * 100,
                                                                       np.true_divide(error1[0][0], n_test))
                 if(previous_error < error):
                     break
 
-        accuracy, error = self.test_Network(testing_data,0.1)
+        accuracy, error = self.test_Network(testing_data,0)
         print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
 
     def update_weights(self, weight, learning_rate, length, nabla):
@@ -223,5 +225,5 @@ if __name__ == "__main__":
     mnist = MNIST_load_data()
     training_data, validation_data, testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
-    network.Stochastic_Gradient_Descent(validation_data, training_data, 0.01)
+    network.Stochastic_Gradient_Descent(validation_data, training_data, testing_data, 0.01)
     
