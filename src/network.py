@@ -34,12 +34,12 @@ class Neural_Network(object):
         #return (probs == probs.max(axis=1, keepdims=1)).astype(int)
         return probs
 
-    def test_Network(self, testing_data,dropout = 0):
+    def test_Network(self, testing_data,dropout=1):
         total_error = 0
         test_results = 0
         mnist = MNIST_load_data()
-        m2 = np.random.binomial(1, 1- dropout, size=(1,256))
-        m3 = np.random.binomial(1, 1 - dropout, size=(1,256))
+        m2 = np.random.binomial(1, dropout, size=(1,256))
+        m3 = np.random.binomial(1, dropout, size=(1,256))
         for (x,y) in testing_data:
             probs = self.feed_Network(x, m2, m3)
             logprob = -np.log(probs)
@@ -50,7 +50,7 @@ class Neural_Network(object):
 
         return test_results,total_error
 
-    def Stochastic_Gradient_Descent(self, validation_data, training_data, testing_data, learning_rate):
+    def Stochastic_Gradient_Descent(self, validation_data, training_data, testing_data, learning_rate,dropout):
 
         iterations = 30
         SGD_Size = 10
@@ -76,18 +76,18 @@ class Neural_Network(object):
                 accuracy,error = self.test_Network(validation_data)
                 error = np.true_divide(error,n_val)
                 print "Validation: iteration {0}:  accuracy={1}% with Cost {2}".format(j, np.true_divide(accuracy,n_val)*100, error[0][0])
-                accuracy1, error1 = self.test_Network(testing_data,0)
+                accuracy1, error1 = self.test_Network(testing_data)
                 print "Testing:  accuracy={0}% with cost {1}".format(np.true_divide(accuracy1, n_test) * 100,
                                                                       np.true_divide(error1[0][0], n_test))
                 if(previous_error < error):
                     break
 
-        accuracy, error = self.test_Network(testing_data,0)
+        accuracy, error = self.test_Network(testing_data,dropout)
         print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
 
-    def update_weights(self, weight, learning_rate, length, nabla):
+    def update_values(self, old_values, learning_rate, length, new_values):
 
-        return weight - ((learning_rate / length) * nabla)
+        return old_values - ((learning_rate / length) * new_values)
 
     def update_SGD_Batch(self, SGD_Batch, learning_rate):
 
@@ -107,7 +107,7 @@ class Neural_Network(object):
         # Functional approach
         self.weights = list(
             map(
-                lambda (i, x): self.update_weights(
+                lambda (i, x): self.update_values(
                     x,
                     learning_rate,
                     len(SGD_Batch),
@@ -118,7 +118,7 @@ class Neural_Network(object):
         )
         self.biases = list(
             map(
-                lambda (i, x): self.update_weights(
+                lambda (i, x): self.update_values(
                     x,
                     learning_rate,
                     len(SGD_Batch),
@@ -223,7 +223,9 @@ class MNIST_load_data(object):
 if __name__ == "__main__":
 
     mnist = MNIST_load_data()
+    dropout = 0
+    learning_rate = 0.01
     training_data, validation_data, testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
-    network.Stochastic_Gradient_Descent(validation_data, training_data, testing_data, 0.01)
+    network.Stochastic_Gradient_Descent(validation_data, training_data, testing_data, learning_rate, 1-dropout)
     
