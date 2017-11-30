@@ -88,10 +88,13 @@ class Neural_Network(object):
         m3 = np.random.binomial(1, dropout, size=(1, 256))
         W1 = [256,256,256]
         W2 = [784,256,10]
-
+        count = 0
         for i in range(3):
+            #print 'I {}'.format(i)
             for j in range(W1[i]):
+                #print 'J {}'.format(j)
                 for k in range(W2[i]):
+                    #print 'K {}'.format(k)
                     np.random.seed(1)
                     #pdb.set_trace()
 
@@ -99,28 +102,42 @@ class Neural_Network(object):
                     gradient1 = dW[i][j,k]
 
                     np.random.seed(1)
+                    if(i==0):
+                        self.weights[i][k,j] -= tiny
+                    else:
+                        self.weights[i][j,k] -= tiny
 
-                    self.weights[i][j,k] -= tiny
                     probs = self.feed_Network(inp, dropout)
                     logprob = -np.log(probs)
                     error1 = np.dot(logprob, op)
 
                     np.random.seed(1)
-                    self.weights[i][j,k] += 2 * tiny
+                    if (i == 0):
+                        self.weights[i][k, j] += 2 * tiny
+                    else:
+                        self.weights[i][j, k] += 2 * tiny
+
+                    #self.weights[i][j,k] += 2 * tiny
                     probs = self.feed_Network(inp, dropout)
                     logprob = -np.log(probs)
                     error2 = np.dot(logprob, op)
 
-                    self.weights[i][j,k] -= tiny
+                    if (i == 0):
+                        self.weights[i][k, j]  -= tiny
+                    else:
+                        self.weights[i][j, k]  -= tiny
+
+                    #self.weights[i][j,k] -= tiny
 
                     gradient2 = (error2 - error1) / (2 * tiny)
 
-                    if(gradient1-gradient2[0][0] > 1e-9):
+                    if(gradient1-gradient2[0][0] > 1e-5):
+                        count = count + 1
                         #print 'incorrect'
-                        #print gradient1-gradient2[0][0]
-                        break
+                        print gradient1-gradient2[0][0]
 
         print "Gradients OK"
+        print "Incorrect:{}/{}".format(count,268800)
 
 
 def sigmoid(z,derivative = False):
@@ -143,21 +160,15 @@ class MNIST_load_data(object):
             )
         )
         mndata = MNIST(data_path)
-        train = mndata.load_training()
         test = mndata.load_testing()
 
-        training_inputs = [np.reshape(x, (784, 1)) for x in train[0]]
-        training_results = [self.one_hot_vectors(y) for y in train[1]]
-        training_inputs = [training_inputs[i:i + 10000] for i in xrange(0, len(training_inputs), 10000)]
-        training_results = [training_results[i:i + 10000] for i in xrange(0, len(training_results), 10000)]
-        training_data = zip(training_inputs[0], training_results[0])
         test_inputs = [np.reshape(x, (784, 1)) for x in test[0]]
         inputs = [test_inputs[i:i + 5000] for i in xrange(0, len(test_inputs),5000)]
         labels = [test[1][i:i + 5000] for i in xrange(0, len(test[1]), 5000)]
         testing_data = zip(inputs[0], labels[0])
-        validation_data = zip(inputs[1], labels[1])
+        #validation_data = zip(inputs[1], labels[1])
 
-        return (training_data, validation_data, testing_data)
+        return (testing_data)
 
 
     def one_hot_vectors(self, j):
@@ -170,7 +181,7 @@ if __name__ == "__main__":
     mnist = MNIST_load_data()
     dropout = 1 #probabity of retaining a neuron(1 is no dropout, 0 is dropping all neurons)
     learning_rate = 0.01
-    training_data, validation_data, testing_data = mnist.load_data_wrapper()
+    testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
     for (x, y) in testing_data:
         network.check_gradients(x,mnist.one_hot_vectors(y),dropout)
