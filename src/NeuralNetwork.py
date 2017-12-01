@@ -1,5 +1,5 @@
 """ 1. This program slightly  incorporates ideas from tutorial blog and implementation of neural
-    network by Michael Nielsen(http://neuralnetworksanddeeplearning.com/chap1.html)
+    network by Michael Nielsen(http://neuralnetworksanddeeplearning.com/chap1.html) and from boook Neural network and deep learning
     2. We also use python-mnist 0.3, standard python library authored by Richard Marko avaialable
     at https://pypi.python.org/pypi/python-mnist"""
 #Assumptions:
@@ -8,7 +8,6 @@
 #2. Accuracy can be higher if the stopping criterias are changed
 import os
 import random
-import pdb
 # Third-party libraries
 import numpy as np
 from mnist import MNIST
@@ -61,8 +60,6 @@ class Neural_Network(object):
         n_val = len(validation_data)
         n_test = len(testing_data)
         n = len(training_data)
-        error = 999
-        accuracy = 999
 
         for j in xrange(iterations):
             m2 = np.random.binomial(1, dropout, size=(1, 256))
@@ -75,12 +72,10 @@ class Neural_Network(object):
             total_error = 0
             for SGD_Batch in SGD_Batches:
                 total_error += self.update_SGD_Batch(SGD_Batch, learning_rate, m2,m3)
-
             #print 'Training Error:' , total_error[0][0]/len(training_data)
 
             if validation_data:
-                previous_error = error
-                previous_accuracy  = accuracy
+
                 accuracy,error = self.test_Network(validation_data,dropout)
                 error = np.true_divide(error,n_val)
                 accuracy = np.true_divide(accuracy,n_val)*100
@@ -88,7 +83,7 @@ class Neural_Network(object):
                 #accuracy1, error1 = self.test_Network(testing_data,dropout)
                 #print "Testing:  accuracy={0}% with cost {1}".format(np.true_divide(accuracy1, n_test) * 100, np.true_divide(error1[0][0], n_test))
                 if(dropout < 1):
-                    if (accuracy >= 95):
+                    if (accuracy >= 92):
                             break
                 else:
                     if(accuracy > 90):
@@ -109,6 +104,7 @@ class Neural_Network(object):
         total_error = 0
         for dig, op in SGD_Batch:
             delta_bias, delta_weight, error = self.back_Propogation(dig, op, m2, m3)
+            #update weights
             total_error += error
             batch_weight[0] += delta_weight[0].transpose()
             batch_weight[1] += delta_weight[1].transpose()
@@ -117,7 +113,6 @@ class Neural_Network(object):
             batch_bias[1] += delta_bias[1]
             batch_bias[2] += delta_bias[2]
 
-        # Functional approach
         self.weights = list(
             map(
                 lambda (i, x): self.update_values(
@@ -140,15 +135,14 @@ class Neural_Network(object):
                 enumerate(self.biases)
             )
         )
-
         return total_error
 
     def back_Propogation(self, dig, op, m2, m3):
 
-
         batch_bias = [np.zeros(b.shape) for b in self.biases]
         batch_weight = [np.zeros(w.shape) for w in self.weights]
 
+        #feed forward
         scaled_x = np.true_divide(dig,255)
         activation_fn = scaled_x
         activations = [scaled_x]
@@ -173,7 +167,7 @@ class Neural_Network(object):
         error = np.dot(logprob, op)
         activations.append(probs)
 
-        # backward pass
+        # back propogation
 
         gradient = activations[3] - op.transpose()
         batch_weight[2] = (activations[2].transpose()).dot(gradient)
@@ -217,12 +211,12 @@ class MNIST_load_data(object):
 
         training_inputs = [np.reshape(x, (784, 1)) for x in train[0]]
         training_results = [self.one_hot_vectors(y) for y in train[1]]
-        # training for only 10000 data set
-        training_inputs = [training_inputs[i:i + 10000] for i in xrange(0, len(training_inputs), 10000)]
-        training_results = [training_results[i:i + 10000] for i in xrange(0, len(training_results), 10000)]
+        # training for only 50000 data set
+        training_inputs = [training_inputs[i:i + 50000] for i in xrange(0, len(training_inputs), 50000)]
+        training_results = [training_results[i:i + 50000] for i in xrange(0, len(training_results), 50000)]
         training_data = zip(training_inputs[0], training_results[0])
-        #pdb.set_trace()
         test_inputs = [np.reshape(x, (784, 1)) for x in test[0]]
+        # Dividing dataset into testing and validation of 5000 each
         inputs = [test_inputs[i:i + 5000] for i in xrange(0, len(test_inputs),5000)]
         labels = [test[1][i:i + 5000] for i in xrange(0, len(test[1]), 5000)]
         testing_data = zip(inputs[0], labels[0])

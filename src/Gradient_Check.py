@@ -1,10 +1,10 @@
-""" This program slightly incorporates ideas from tutorial blog and implementation of neural
-    network by Ottokar Tilk(https://gist.github.com/ottokart/ebd3d32438c13a62ea3c)"""
+""" This program slightly incorporates ideas from implementation of neural
+    network and gradient check by Ottokar Tilk(https://gist.github.com/ottokart/ebd3d32438c13a62ea3c)"""
 
 import os
 import random
 import pdb
-# Third-party libraries
+# Third-party librariess
 import numpy as np
 from mnist import MNIST
 
@@ -62,8 +62,6 @@ class Neural_Network(object):
         probs = exp_scores / np.sum(exp_scores, axis=1, keepdims=True)
         activations.append(probs)
 
-        # backward pass
-
         gradient = activations[3] - op.transpose()
         batch_weight[2] = (activations[2].transpose()).dot(gradient)
         batch_bias[2] = np.sum(gradient, axis=0, keepdims=True)
@@ -90,18 +88,12 @@ class Neural_Network(object):
         W2 = [784,256,10]
         count = 0
         for i in range(3):
-            #print 'I {}'.format(i)
             for j in range(W1[i]):
-                #print 'J {}'.format(j)
                 for k in range(W2[i]):
-                    #print 'K {}'.format(k)
-                    np.random.seed(1)
-                    #pdb.set_trace()
 
                     dW = self.back_Propogation(inp, op, m2, m3)
                     gradient1 = dW[i][j,k]
 
-                    np.random.seed(1)
                     if(i==0):
                         self.weights[i][k,j] -= tiny
                     else:
@@ -111,13 +103,11 @@ class Neural_Network(object):
                     logprob = -np.log(probs)
                     error1 = np.dot(logprob, op)
 
-                    np.random.seed(1)
                     if (i == 0):
                         self.weights[i][k, j] += 2 * tiny
                     else:
                         self.weights[i][j, k] += 2 * tiny
 
-                    #self.weights[i][j,k] += 2 * tiny
                     probs = self.feed_Network(inp, dropout)
                     logprob = -np.log(probs)
                     error2 = np.dot(logprob, op)
@@ -127,14 +117,11 @@ class Neural_Network(object):
                     else:
                         self.weights[i][j, k]  -= tiny
 
-                    #self.weights[i][j,k] -= tiny
 
                     gradient2 = (error2 - error1) / (2 * tiny)
 
-                    if(gradient1-gradient2[0][0] > 1e-5):
+                    if(gradient1-gradient2[0][0] > 1e-4):
                         count = count + 1
-                        #print 'incorrect'
-                        print gradient1-gradient2[0][0]
 
         print "Gradients OK"
         print "Incorrect:{}/{}".format(count,268800)
@@ -166,7 +153,6 @@ class MNIST_load_data(object):
         inputs = [test_inputs[i:i + 5000] for i in xrange(0, len(test_inputs),5000)]
         labels = [test[1][i:i + 5000] for i in xrange(0, len(test[1]), 5000)]
         testing_data = zip(inputs[0], labels[0])
-        #validation_data = zip(inputs[1], labels[1])
 
         return (testing_data)
 
@@ -179,10 +165,10 @@ class MNIST_load_data(object):
 if __name__ == "__main__":
 
     mnist = MNIST_load_data()
-    dropout = 1 #probabity of retaining a neuron(1 is no dropout, 0 is dropping all neurons)
+    dropout = 0 #probabity of dropping a neuron(0 is no dropout, 1 is dropping all neurons)
     learning_rate = 0.01
     testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
     for (x, y) in testing_data:
-        network.check_gradients(x,mnist.one_hot_vectors(y),dropout)
+        network.check_gradients(x,mnist.one_hot_vectors(y),1 - dropout)
         break
