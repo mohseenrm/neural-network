@@ -121,10 +121,11 @@ class Neural_Network(object):
                     gradient2 = (error2 - error1) / (2 * tiny)
 
                     if(gradient1-gradient2[0][0] > 1e-4):
+                        print 'Difference: {}'.format(gradient1-gradient2[0][0])
                         count = count + 1
 
         print "Gradients OK"
-        print "Incorrect:{}/{}".format(count,268800)
+        print "Incorrect:{}%".format(np.true_divide(count,268800)*100)
 
 
 def sigmoid(z,derivative = False):
@@ -166,7 +167,7 @@ if __name__ == "__main__":
 
     mnist = MNIST_load_data()
     dropout = 0 #probabity of dropping a neuron(0 is no dropout, 1 is dropping all neurons)
-    learning_rate = 0.01
+    learning_rate = 1.5
     testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
     for (x, y) in testing_data:

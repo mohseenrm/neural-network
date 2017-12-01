@@ -6,9 +6,10 @@ Libraries Used:
 
 Approximated Time(All approximations are with respect to a system with an average processing speed):
 1. To train 30 iterations using 50000 data samples along with validation on 5000 data samples and 
-test neural network on 5000 data samples takes an approximated 45min to an hour. - NeuralNetwork.py
+test neural network on 5000 data samples takes an approximated 45min to an hour**. - NeuralNetwork.py
 2. To check the correctness of gradients of weights in all the layers taken an approximated time of 
-20mins to 25 mins. - Gradient_Check.py
+20mins to 25 mins**. - Gradient_Check.py.
+
 (** Time may vary with number of iterations and training sample size).
 
 
