@@ -6,9 +6,9 @@ Libraries Used:
 
 Approximated Time(All approximations are with respect to a system with an average processing speed):
 1. To train 30 iterations using 50000 data samples along with validation on 5000 data samples and 
-test neural network on 5000 data samples takes an approximated 45min to an hour**. - NeuralNetwork.py
+test neural network on 5000 data samples takes an approximated an hour to two**. - NeuralNetwork.py
 2. To check the correctness of gradients of weights in all the layers taken an approximated time of 
-20mins to 25 mins**. - Gradient_Check.py.
+30mins to 45 mins**. - Gradient_Check.py.
 
 (** Time may vary with number of iterations and training sample size).
 
@@ -27,6 +27,10 @@ To change parameter:
 2. learning rate: change the value of learning_rate in main #default:1.5
 3. iterations or epoch: change the value of iteration in Stochastic_Gradient_Descent #default: 30
 4. SGD batch size (Epoch size): change the value of SGD_Size in Stochastic_Gradient_Descent #default: 10
+5. Stopping Criteria:
+   a. 30 Iterations (Can be changed in Stochastic_Gradient_Descent )or one(b or c) of the below.
+   b. Without Dropout: Accuracy of 90%(Can be changed in Stochastic_Gradient_Descent line number: 89 if needed). 
+   C. With Dropout: Accuracy of 92%(Can be changed in Stochastic_Gradient_Descent line number: 86 if needed).
 
 To test the gradients :
 Move to src, then type python gradient_Check.py.

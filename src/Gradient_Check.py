@@ -121,7 +121,7 @@ class Neural_Network(object):
                     gradient2 = (error2 - error1) / (2 * tiny)
 
                     if(gradient1-gradient2[0][0] > 1e-4):
-                        print 'Difference: {}'.format(gradient1-gradient2[0][0])
+                        #print 'Difference: {}'.format(gradient1-gradient2[0][0])
                         count = count + 1
 
         print "Gradients OK"
