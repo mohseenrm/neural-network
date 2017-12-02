@@ -233,7 +233,7 @@ class MNIST_load_data(object):
 if __name__ == "__main__":
 
     mnist = MNIST_load_data()
-    dropout = 0.5 #probabity of dropping a neuron(0 is no dropout, 1 is dropping all neurons)
+    dropout = 0 #probabity of dropping a neuron(0 is no dropout, 1 is dropping all neurons)
     learning_rate = 1.5
     training_data, validation_data, testing_data = mnist.load_data_wrapper()
     network = Neural_Network()
