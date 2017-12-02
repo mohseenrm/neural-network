@@ -91,7 +91,7 @@ class Neural_Network(object):
 
         accuracy, error = self.test_Network(testing_data,dropout)
         print "Testing:  accuracy={1}% with cost {2}".format(j, np.true_divide(accuracy, n_test) * 100,np.true_divide(error[0][0], n_test))
-        print "Increase the number of iterations if the accuracy obtained is below expected accuracy"
+        print "Increase the number of iterations/threshold if the accuracy obtained is below expected accuracy"
 
     def update_values(self, old_values, learning_rate, length, new_values):
 
