@@ -125,7 +125,7 @@ class Neural_Network(object):
                         count = count + 1
 
         print "Gradients OK"
-        print "Incorrect:{}%".format(np.true_divide(count,268800)*100)
+        #print "Incorrect:{}%".format(np.true_divide(count,268800)*100)
 
 
 def sigmoid(z,derivative = False):
