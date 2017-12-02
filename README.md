@@ -6,6 +6,11 @@ Libraries Used:
 1. Standart Python Library: OS, Random, Numpy
 2. External Library: python-mnist 0.3( Installation using PIP: pip install python-mnist )
 
+### Install dependencies
+```
+pip install -r requirements.txt
+```
+
 ### Approximated Time
 > All approximations are with respect to a system with an average processing speed
 
